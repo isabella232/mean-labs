@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { Post } from '../post.model';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-post-create',
@@ -12,14 +14,20 @@ export class PostCreateComponent {
 
   enteredTitle = '';
   enteredContent = '';
-  @Output() postCreated = new EventEmitter<Post>(); // Output to tell parent app this is a event you can listen on.
 
   newPost = 'This is property binding example';
-  onAddPost() {
-    const post: Post = {
-      title: this.enteredTitle,
-      content: this.enteredContent
+
+  constructor(public postsService: PostsService) {}
+
+  onAddPost(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+    const post: Post = { // Don't actually need to post variable since we decided on passing title and content to the service instead.
+      title: form.value.title,
+      content: form.value.content
     };
-    this.postCreated.emit(post);
+    this.postsService.addPost(form.value.title, form.value.content);
+    form.resetForm();
   }
 }
