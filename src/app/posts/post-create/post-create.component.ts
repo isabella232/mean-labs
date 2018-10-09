@@ -22,6 +22,7 @@ export class PostCreateComponent implements OnInit {
   isLoading = false;
   form: FormGroup;
   newPost = 'This is property binding example';
+  imagePreview: string;
 
   constructor(public postsService: PostsService, public route: ActivatedRoute) {}
 
@@ -56,8 +57,11 @@ export class PostCreateComponent implements OnInit {
     const file = (event.target as HTMLInputElement).files[0];
     this.form.patchValue({image: file});
     this.form.get('image').updateValueAndValidity();
-    console.log(file);
-    console.log(this.form);
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result;
+    };
+    reader.readAsDataURL(file);
   }
 
   onSavePost() {
