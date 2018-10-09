@@ -24,6 +24,6 @@ app.use((req, res, next) =>
   next();
 });
 
-app.use(postRoutes);
+app.use('/api/posts', postRoutes);
 
 module.exports = app;
