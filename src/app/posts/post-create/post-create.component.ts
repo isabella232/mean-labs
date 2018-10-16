@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Post } from '../post.model';
 import { PostsService } from '../posts.service';
-
+import { mimeType } from './mime-type.validator';
 
 @Component({
   selector: 'app-post-create',
@@ -34,7 +34,9 @@ export class PostCreateComponent implements OnInit {
       'content': new FormControl(null, {
         validators: [Validators.required]
       }),
-      'image': new FormControl(null, {validators: [Validators.required]})
+      'image': new FormControl(null, {
+        validators: [Validators.required],
+        asyncValidators: [mimeType]})
     });
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has('postId')) {
@@ -59,7 +61,7 @@ export class PostCreateComponent implements OnInit {
     this.form.get('image').updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {
-      this.imagePreview = reader.result;
+      this.imagePreview = <string>reader.result;
     };
     reader.readAsDataURL(file);
   }
