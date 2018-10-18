@@ -19,7 +19,7 @@ export class PostsService {
   }
 
   getPost(id: string) {
-    return this.http.get<{_id: string, title: string, content: string}>('http://localhost:3000/api/posts/' + id);
+    return this.http.get<{_id: string, title: string, content: string, imagePath: string}>('http://localhost:3000/api/posts/' + id);
   }
 
   getPosts() {
@@ -69,6 +69,7 @@ export class PostsService {
     let postData: Post | FormData;
     if (typeof(image) === 'object') {
       postData = new FormData();
+      postData.append('id', id);
       postData.append('title', title);
       postData.append('content', content);
       postData.append('image', image, title);
@@ -77,7 +78,8 @@ export class PostsService {
         id: id,
         title: title,
         content: content,
-        imagePath: image };
+        imagePath: image
+      };
     }
 
     this.http
@@ -89,7 +91,7 @@ export class PostsService {
           id: id,
           title: title,
           content: content,
-          imagePath: null
+          imagePath: 'response.imagePath'
         };
 
         updatedPosts[oldPostIndex] = post;
