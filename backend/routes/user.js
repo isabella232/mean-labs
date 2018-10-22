@@ -52,10 +52,11 @@ router.post('/login', (req, res, next) => {
       }
       const token = jwt.sign({email: fetchedUser.email, userId: fetchedUser._id},
          'this_should_be_moved_to_config_or_sumthin',
-         { expiresIn:'1h'});
+         { expiresIn:'1h' });
 
       res.status(200).json({
         token: token,
+        expiresIn: 3600,
         message: "Found one! Pass is: " + req.body.password + ", result was: " + token
       });
     })
