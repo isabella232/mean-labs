@@ -31,9 +31,6 @@ router.post('/signup', (req, res, next) => {
 router.post('/login', (req, res, next) => {
   let fetchedUser;
   console.log('Attempting login: ' + req.body.email);
-      // return res.status(200).json({
-      // message: "Found one!"
-      // });
   User.findOne({email: req.body.email})
     .then(user => {
       if(!user) {
@@ -57,7 +54,7 @@ router.post('/login', (req, res, next) => {
       res.status(200).json({
         token: token,
         expiresIn: 3600,
-        message: "Found one! Pass is: " + req.body.password + ", result was: " + token
+        userId : fetchedUser._id
       });
     })
     .catch(err => {

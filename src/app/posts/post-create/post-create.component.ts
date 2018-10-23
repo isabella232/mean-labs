@@ -12,7 +12,7 @@ import { mimeType } from './mime-type.validator';
   styleUrls: ['./post-create.component.css']
 })
 
-//Uses the reactive approach for the Forms
+// Uses the reactive approach for the Forms
 export class PostCreateComponent implements OnInit {
 
   enteredTitle = '';
@@ -50,7 +50,8 @@ export class PostCreateComponent implements OnInit {
             id: postData._id,
             title: postData.title,
             content: postData.content,
-            imagePath: postData.imagePath
+            imagePath: postData.imagePath,
+            creator: postData.creator
           };
 
           this.form.setValue({title: this.post.title, content: this.post.content, image: this.post.imagePath});
