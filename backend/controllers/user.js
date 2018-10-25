@@ -46,7 +46,7 @@ exports.userLogin = (req, res, next) => {
         });
       }
       const token = jwt.sign({email: fetchedUser.email, userId: fetchedUser._id},
-         'this_should_be_moved_to_config_or_sumthin',
+         process.env.JWT_KEY,
          { expiresIn:'1h' });
 
       res.status(200).json({

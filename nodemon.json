@@ -1,0 +1,6 @@
+{
+  "env": {
+    "MONGO_ATLAS_PW": "wIOwe7N3PLxH1d1Q",
+    "JWT_KEY": "this_should_be_moved_to_config_or_sumthin"
+  }
+}

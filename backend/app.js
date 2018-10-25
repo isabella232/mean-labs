@@ -7,7 +7,7 @@ const postRoutes = require('./routes/posts');
 const userRoutes = require('./routes/user');
 const app = express();
 
-mongoose.connect('mongodb+srv://Jimmy:wIOwe7N3PLxH1d1Q@cluster0-y6kem.mongodb.net/node-angular?retryWrites=true') //should use config file or something since this will be up in git
+mongoose.connect('mongodb+srv://Jimmy:' + process.env.MONGO_ATLAS_PW + '@cluster0-y6kem.mongodb.net/node-angular?retryWrites=true') //should use config file or something since this will be up in git
   .then(() => {
     console.log('Connected to the DB!')
   })
