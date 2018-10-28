@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:3000/api'
+  apiUrl: 'http://meanlabs-env.jtpmap8hpw.eu-central-1.elasticbeanstalk.com/api'
 };
