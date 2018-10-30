@@ -1,5 +1,7 @@
 const multer = require('multer');
 
+const pathToImages = process.env.BACKEND_IMAGES_PATH;
+
 const MIME_TYPE_MAP = {
   'img/png': 'png',
   'img/jpeg': 'jpg',
@@ -12,7 +14,7 @@ const storage = multer.diskStorage({
     if(isValid) {
       error= null;
     }
-    cb(null, 'images');
+    cb(null, pathToImages);
   },
   filename: (req, file, cb) => {
     const name = file.originalname.toLocaleLowerCase().split(' ').join('-');
