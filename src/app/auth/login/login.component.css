@@ -1,7 +1,17 @@
+mat-card {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 mat-form-field {
   width: 100%;
 }
 
 mat-spinner {
   margin: auto;
+}
+
+h2 {
+ text-align: center;
 }
