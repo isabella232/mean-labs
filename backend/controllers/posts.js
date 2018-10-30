@@ -1,11 +1,14 @@
 const Post = require('../models/post.js');
 
+const pathToImages = process.env.BACKEND_IMAGES_PATH.substring(1);
+
 exports.createPost = (req, res, next) => {
   const url = req.protocol + '://' + req.get('host');
+  console.log( url + pathToImages + '/' + req.file.filename);
   const post = new Post({
     title: req.body.title,
     content: req.body.content,
-    imagePath:  url + '/images/' + req.file.filename,
+    imagePath:  url + pathToImages + '/' + req.file.filename,
     creator: req.userData.userId
   });
   post.save().then(createdPost => {
@@ -32,7 +35,7 @@ exports.updatePost = (req,res,next) => {
   let imagePath = req.body.imagePath;
   if(req.file) {
     const url = req.protocol + '://' + req.get('host');
-    imagePath = url + '/images/' + req.file.filename;
+    imagePath = url + pathToImages + '/' + req.file.filename;
   }
   const post = new Post({
     _id: req.body.id,
