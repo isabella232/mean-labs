@@ -6,7 +6,7 @@ import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: PostListComponent },
+  { path: 'posts', component: PostListComponent },
   { path: 'create', component: PostCreateComponent, canActivate: [AuthGuard] },
   { path: 'edit/:postId', component: PostCreateComponent, canActivate: [AuthGuard] },
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' } // lazy loading modules

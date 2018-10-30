@@ -62,7 +62,7 @@ export class PostsService {
 
     this.http.post<{message: string, post: Post}>(BACKENDURL, postData)
     .subscribe((responseData) => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/posts']);
     });
   }
 
