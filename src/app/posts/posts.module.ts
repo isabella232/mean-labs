@@ -4,7 +4,7 @@ import { AngularMaterialModule } from '../angular-material.module';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { PostsRoutingModule } from './posts-routing.module';
 
 
 @NgModule({
@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     ReactiveFormsModule,
     AngularMaterialModule,
-    RouterModule
+    PostsRoutingModule
   ]
 })
 export class PostsModule {}
