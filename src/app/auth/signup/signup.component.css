@@ -15,3 +15,7 @@ mat-spinner {
 h2 {
   text-align: center;
  }
+
+ mat-form-field.mat-form-field {
+  font-size: 22px;
+}
