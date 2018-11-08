@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { StartComponent } from './start/start.component';
     BrowserAnimationsModule,
     HttpClientModule,
     AngularMaterialModule,
+    MatGridListModule,
     PostsModule,
     // AuthModule, this module uses lazy loading so should not be imported
     AppRoutingModule

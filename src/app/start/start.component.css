@@ -1,13 +1,11 @@
-:host {
-  float:left;
-}
 
-.example-card {
+
+.biography-card {
   max-width: 400px;
   float:left;
 }
 
-.header-image {
+.biography-avatar {
   background-image: url('../../assets/avatar.jpg');
   background-size: cover;
   width: 200px;
@@ -18,4 +16,7 @@
 mat-card-content a, a:visited
 {
   color: inherit;
+}
+mat-grid-tile {
+  background: inherit;
 }
