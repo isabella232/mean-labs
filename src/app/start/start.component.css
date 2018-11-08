@@ -1,10 +1,10 @@
 :host {
-  max-width: 20px;
+  float:left;
 }
 
 .example-card {
   max-width: 400px;
-
+  float:left;
 }
 
 .header-image {
@@ -13,10 +13,6 @@
   width: 200px;
   height: 200px;
   margin: 0 0 2rem 0;
-}
-
-mat-card-content {
-  height: -webkit-fill-available;
 }
 
 mat-card-content a, a:visited
