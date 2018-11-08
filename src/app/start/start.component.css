@@ -1,4 +1,10 @@
-
+mat-card-content a, a:visited
+{
+  color: inherit;
+}
+mat-grid-tile {
+  background: inherit;
+}
 
 .biography-card {
   max-width: 400px;
@@ -13,10 +19,21 @@
   margin: 0 0 2rem 0;
 }
 
-mat-card-content a, a:visited
-{
-  color: inherit;
+.under-construction {
+  width: 400px;
+  height: 582px;
+  background-image: url('../../assets/1376.jpg');
 }
-mat-grid-tile {
-  background: inherit;
+
+.under-construction p {
+  margin-top: 50%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+}
+
+.backlogg {
+  width: 400px;
+  height: 582px;
 }
