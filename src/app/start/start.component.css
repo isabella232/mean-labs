@@ -1,0 +1,25 @@
+:host {
+  max-width: 20px;
+}
+
+.example-card {
+  max-width: 400px;
+
+}
+
+.header-image {
+  background-image: url('../../assets/avatar.jpg');
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  margin: 0 0 2rem 0;
+}
+
+mat-card-content {
+  height: -webkit-fill-available;
+}
+
+mat-card-content a, a:visited
+{
+  color: inherit;
+}

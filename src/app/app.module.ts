@@ -11,13 +11,15 @@ import { ErrorInterceptor } from './error-interceptor';
 import { ErrorComponent } from './error/error.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { PostsModule } from './posts/posts.module';
+import { StartComponent } from './start/start.component';
 // import { AuthModule } from './auth/auth.module'; lazy loaded
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ErrorComponent
+    ErrorComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
