@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.scss']
 })
 
 // Uses template drive approach for Forms
