@@ -6,7 +6,7 @@ import { LabnotesComponent } from './labnotes/labnotes.component';
 import { LabnoteCreateComponent } from './labnote-create/labnote-create.component';
 
 const routes: Routes = [
-  { path: 'labnotes', component: LabnotesComponent, canActivate: [AuthGuard]  },
+  { path: 'labnotes', component: LabnotesComponent },
   { path: 'create', component: LabnoteCreateComponent, canActivate: [AuthGuard]  }
 ];
 
