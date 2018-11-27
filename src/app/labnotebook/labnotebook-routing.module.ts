@@ -7,7 +7,8 @@ import { LabnoteCreateComponent } from './labnote-create/labnote-create.componen
 
 const routes: Routes = [
   { path: 'labnotes', component: LabnotesComponent },
-  { path: 'create', component: LabnoteCreateComponent, canActivate: [AuthGuard]  }
+  { path: 'create', component: LabnoteCreateComponent},
+  { path: 'edit/:noteId', component: LabnoteCreateComponent }
 ];
 
 @NgModule({

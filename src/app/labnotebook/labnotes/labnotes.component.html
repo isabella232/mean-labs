@@ -1,16 +1,20 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
-<mat-accordion multi="true" *ngIf="labnotes.length > 0 && !isLoading">
-  <mat-expansion-panel *ngFor="let labnote of labnotes">
-    <mat-expansion-panel-header>
-      {{labnote.title}}
-    </mat-expansion-panel-header>
-    <p>{{labnote.content}}</p>
-    <mat-action-row *ngIf="userIsAuthenticated && userId == labnote.creator">
-        <a mat-button color="primary" >Edit</a>
-        <button mat-button color="warn">Delete</button>
-      </mat-action-row>
-  </mat-expansion-panel>
-</mat-accordion>
+<mat-nav-list>
+  <mat-list-item *ngFor="let labnote of labnotes">
+      <a matLine [routerLink]="['/labnotebook/edit', labnote.id]">
+      <p matLine>
+          <span class="labnote-title"> {{labnote.title}} </span>
+          <span class="labnote-date"> {{labnote.date}} </span>
+        </p>
+      </a>
+     <button mat-icon-button >
+        <mat-icon>info</mat-icon>
+     </button>
+     <button mat-icon-button >
+        <mat-icon >warning</mat-icon>
+     </button>
+  </mat-list-item>
+</mat-nav-list>
 <mat-paginator [length]="totalNotes" [pageSize]="NotesPerPage" [pageSizeOptions]="pageSizeOptions" *ngIf="labnotes.length > 0"></mat-paginator>
 <p *ngIf="labnotes.length < 1 && !isLoading">No posts added yet!</p>
 <a mat-raised-button color="primary"> New Post </a>

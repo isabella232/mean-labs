@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { PageEvent } from '@angular/material';
 
 import { Labnote } from '../labnote.model';
+import { LabNoteBookService } from '../labnotebook.service';
 
 @Component({
   selector: 'app-labnotes',
@@ -10,7 +11,11 @@ import { Labnote } from '../labnote.model';
   styleUrls: ['./labnotes.component.scss']
 })
 export class LabnotesComponent implements OnInit {
-  labnotes: Labnote[] = [];
+  labnotes: Labnote[] = [
+    {id: '1', title: 'Elastic Beanstalk', content: '', date: new Date()},
+    {id: '2', title: 'ACM', content: '', date: new Date(Date.UTC(2018, 11, 26, 3, 0, 0))},
+    {id: '3', title: 'S3 Buckets', content: '', date: new Date(Date.UTC(2018, 12, 11, 3, 0, 0))}
+  ];
   isLoading = false;
   private postsSub: Subscription;
   private authStatusSub: Subscription;
@@ -22,7 +27,7 @@ export class LabnotesComponent implements OnInit {
   pageSizeOptions = [1, 2, 5, 10];
   userIsAuthenticated = false;
 
-  constructor() { }
+  constructor(private labNoteBookService: LabNoteBookService) { }
 
   ngOnInit() {
   }
