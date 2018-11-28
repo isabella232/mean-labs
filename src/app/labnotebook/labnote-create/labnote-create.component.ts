@@ -31,7 +31,7 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
       })
     });
 
-    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+/*     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has('postId')) {
         this.mode = 'edit';
         this.noteId = paramMap.get('postId');
@@ -51,7 +51,7 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
         this.mode = 'create';
         this.noteId = null;
       }
-    });
+    }); */
   }
 
   ngOnDestroy() {
@@ -64,7 +64,7 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
     }
     this.isLoading = true;
     if (this.mode === 'create') {
-      this.labnotebookService.addNote(this.form.value.title, this.form.value.content, this.form.value.image);
+      this.labnotebookService.addNote(this.form.value.title, this.form.value.content);
     } else {
       this.labnotebookService.updateNote();
     }

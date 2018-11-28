@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { Labnote } from './labnote.model';
 
+const BACKENDURL = environment.apiUrl + '/labnotebook/';
+
 @Injectable({providedIn: 'root'})
 export class LabNoteBookService {
 
@@ -19,15 +21,14 @@ constructor (private http: HttpClient, private router: Router) {}
     }>('BACKENDURL' + id);
   }
 
-  addNote(title: string, content: string, image: File) {
-    const postData = new FormData();
-    postData.append('title', title);
-    postData.append('content', content);
-    postData.append('image', image, title);
+  addNote(title: string, content: string) {
+    const noteData = new FormData();
+    noteData.append('title', title);
+    noteData.append('content', content);
 
-    this.http.post<{message: string, note: Labnote}>('BACKENDURL', postData)
+    this.http.post<{message: string, note: Labnote}>(BACKENDURL, noteData)
     .subscribe((responseData) => {
-      this.router.navigate(['/posts/list']);
+      this.router.navigate(['/labnotebook/labnotes']);
     });
   }
 
