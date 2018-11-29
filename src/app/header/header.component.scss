@@ -1,25 +1,39 @@
 .mat-toolbar {
-position: relative;
+  position: relative;
 }
 
-ul{
+ul {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-ul li{
+ul li {
+  flex: 1 1 0;
   margin-left: 1px;
   margin-right: 1px;
 }
 
-a{
+.wide-hide {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .wide-show {
+    display: none;
+  }
+  .wide-hide {
+    display: flex;
+  }
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+a {
   text-decoration: none;
   color: white;
 }
-
-.spacer{
-  flex: 1 1 auto;
-}
-

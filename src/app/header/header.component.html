@@ -1,33 +1,111 @@
 <mat-toolbar color="primary">
-    <a [routerLink]="'/'">Gimpan Laboratory</a>
-  <span class="spacer"></span>
+  <a [routerLink]="'/'">Gimpan Laboratory</a>
+  <div class="spacer"></div>
   <ul>
-    <li>
-      <a mat-stroked-button [routerLink]="['/labnotebook']" routerLinkActive="mat-accent" > Lab notebook </a>
+    <li class="wide-show">
+      <a
+        mat-stroked-button
+        [routerLink]="['/labnotebook']"
+        routerLinkActive="mat-accent"
+      >
+        Lab notebook
+      </a>
     </li>
-    <li *ngIf="!userIsAuthenticated">
-      <a mat-stroked-button [routerLink]="['/posts/list']" routerLinkActive="mat-accent" disabled> Posts </a>
+    <li class="wide-show" *ngIf="!userIsAuthenticated">
+      <a
+        mat-stroked-button
+        [routerLink]="['/posts/list']"
+        routerLinkActive="mat-accent"
+        disabled
+      >
+        Posts
+      </a>
     </li>
-    <li *ngIf="userIsAuthenticated">
-      <a mat-stroked-button [routerLink]="['/posts/list']" routerLinkActive="mat-accent" > Posts </a>
+    <li class="wide-show" *ngIf="userIsAuthenticated">
+      <a
+        mat-stroked-button
+        [routerLink]="['/posts/list']"
+        routerLinkActive="mat-accent"
+      >
+        Posts
+      </a>
     </li>
-    <li>
-      <a mat-stroked-button [routerLink]="['/lotrfireworks']" routerLinkActive="mat-accent" disabled> Locked </a>
+    <li class="wide-show">
+      <a
+        mat-stroked-button
+        [routerLink]="['/lotrfireworks']"
+        routerLinkActive="mat-accent"
+        disabled
+      >
+        Locked
+      </a>
     </li>
   </ul>
-  <span class='spacer'></span>
+  <div class="spacer"></div>
   <ul>
-    <li *ngIf="userIsAuthenticated">
-        <a mat-button disabled> Logged in </a>
+    <li *ngIf="userIsAuthenticated"><a mat-button disabled> Logged in </a></li>
+    <li *ngIf="!userIsAuthenticated">
+      <a
+        mat-button
+        [routerLink]="['/auth/login']"
+        routerLinkActive="mat-accent"
+      >
+        Login
+      </a>
     </li>
     <li *ngIf="!userIsAuthenticated">
-      <a mat-button [routerLink]="['/auth/login']" routerLinkActive="mat-accent"> Login </a>
-    </li>
-    <li *ngIf="!userIsAuthenticated">
-      <a mat-button [routerLink]="['/auth/signup']" routerLinkActive="mat-accent"> Signup </a>
+      <a
+        mat-button
+        [routerLink]="['/auth/signup']"
+        routerLinkActive="mat-accent"
+      >
+        Signup
+      </a>
     </li>
     <li *ngIf="userIsAuthenticated">
       <button mat-button (click)="OnLogOut()">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar>
+<mat-toolbar class="wide-hide" color="primary">
+  <ul>
+    <li>
+      <a
+        mat-stroked-button
+        [routerLink]="['/labnotebook']"
+        routerLinkActive="mat-accent"
+      >
+        Lab notebook
+      </a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a
+        mat-stroked-button
+        [routerLink]="['/posts/list']"
+        routerLinkActive="mat-accent"
+        disabled
+      >
+        Posts
+      </a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a
+        mat-stroked-button
+        [routerLink]="['/posts/list']"
+        routerLinkActive="mat-accent"
+      >
+        Posts
+      </a>
+    </li>
+    <li>
+      <a
+        mat-stroked-button
+        [routerLink]="['/lotrfireworks']"
+        routerLinkActive="mat-accent"
+        disabled
+      >
+        Locked
+      </a>
     </li>
   </ul>
 </mat-toolbar>
