@@ -12,7 +12,7 @@ import { Labnote } from '../labnote.model';
 export class LabnoteCreateComponent implements OnInit, OnDestroy {
 
 
-  private mode = 'created';
+  private mode = 'create'; // todo: created if nothing loaded at init
   private noteId: string;
   isLoading = false;
   note: Labnote;
@@ -64,6 +64,7 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
     }
     this.isLoading = true;
     if (this.mode === 'create') {
+
       this.labnotebookService.addNote(this.form.value.title, this.form.value.content);
     } else {
       this.labnotebookService.updateNote();
