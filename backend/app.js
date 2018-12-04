@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 const postRoutes = require('./routes/posts');
 const userRoutes = require('./routes/user');
+const labnotebookRoutes = require('./routes/labnotebook');
 const app = express();
 
 mongoose.connect('mongodb+srv://Jimmy:' + process.env.MONGO_ATLAS_PW + '@cluster0-y6kem.mongodb.net/node-angular?retryWrites=true') //should use config file or something since this will be up in git
@@ -34,5 +35,6 @@ app.use((req, res, next) => {
 
 app.use('/api/posts', postRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/labnotebook', labnotebookRoutes);
 
 module.exports = app;
