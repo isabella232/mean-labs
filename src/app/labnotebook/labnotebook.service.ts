@@ -22,11 +22,8 @@ constructor (private http: HttpClient, private router: Router) {}
   }
 
   addNote(title: string, content: string) {
-    const noteData = new FormData();
-    noteData.append('title', title);
-    noteData.append('content', content);
-
-    this.http.post<{message: string, note: Labnote}>(BACKENDURL, noteData)
+    const noteDataJSON = { title: title, content: content};
+    this.http.post<{message: string, note: Labnote}>(BACKENDURL, noteDataJSON)
     .subscribe((responseData) => {
       this.router.navigate(['/labnotebook/labnotes']);
     });

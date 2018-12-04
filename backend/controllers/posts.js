@@ -3,6 +3,7 @@ const Post = require('../models/post.js');
 const pathToImages = process.env.BACKEND_IMAGES_URL;
 
 exports.createPost = (req, res, next) => {
+
   const url = req.protocol + '://' + req.get('host');
 
   const post = new Post({
