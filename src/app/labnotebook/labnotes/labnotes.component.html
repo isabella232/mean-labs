@@ -17,4 +17,4 @@
 </mat-nav-list>
 <mat-paginator [length]="totalNotes" [pageSize]="NotesPerPage" [pageSizeOptions]="pageSizeOptions" *ngIf="labnotes.length > 0"></mat-paginator>
 <p *ngIf="labnotes.length < 1 && !isLoading">No posts added yet!</p>
-<a mat-raised-button color="primary"> New Post </a>
+<a mat-raised-button color="primary" [routerLink]="['/labnotebook/create']" > New Post </a>
