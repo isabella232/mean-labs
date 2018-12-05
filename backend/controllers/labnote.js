@@ -21,6 +21,16 @@ exports.createLabNote = (req, res, next) => {
   });
 };
 
+exports.getNote = (req, res, next) => {
+  LabNote.findById(req.params.id).then(note => {
+    if(note) {
+      res.status(200).json(note);
+    }else {
+      res.status(404).json({message: 'Post not found!'});
+    }
+  });
+};
+
 exports.getNotes = (req, res, next) => {
   const pageSize = +req.query.pagesize;
   const currentPage = +req.query.page;
@@ -49,4 +59,29 @@ exports.getNotes = (req, res, next) => {
       error: error
     })
   });
+};
+
+exports.updateNote = (req, res, next) => {
+  console.log('req body: ' + req.body.id);
+  console.log('req params: ' + req.params.id);
+  const note = new LabNote({
+  _id: req.body.id,
+  title: req.body.title,
+  content: req.body.content
+  });
+
+  LabNote.updateOne({ _id: req.params.id}, note).then( result => {
+    if(result.nModified > 0) {
+      console.log('Sucess update on: ' + note);
+      res.status(200).json({ message: "Update successful!" });
+    } else {
+      console.log('Not authorized update on: ' + note);
+      res.status(401).json({ message: 'Not authorized!' })
+    }
+  })
+  .catch(error => {
+    res.status(500).json({
+      message: "Couldn't update notes!"
+    })
+  })
 };

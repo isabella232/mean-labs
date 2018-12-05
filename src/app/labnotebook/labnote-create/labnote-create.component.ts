@@ -12,7 +12,7 @@ import { Labnote } from '../labnote.model';
 export class LabnoteCreateComponent implements OnInit, OnDestroy {
 
 
-  private mode = 'create'; // todo: created if nothing loaded at init
+  private mode = 'created'; // todo: created if nothing loaded at init
   private noteId: string;
   isLoading = false;
   note: Labnote;
@@ -31,18 +31,18 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
       })
     });
 
-/*     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if (paramMap.has('postId')) {
+     this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (paramMap.has('noteId')) {
         this.mode = 'edit';
-        this.noteId = paramMap.get('postId');
+        this.noteId = paramMap.get('noteId');
         this.isLoading = true;
-        this.labnotebookService.getNote(this.noteId).subscribe(postData => {
+        this.labnotebookService.getNote(this.noteId).subscribe(noteData => {
           this.isLoading = false;
           this.note = {
-            id: postData._id,
-            title: postData.title,
-            content: postData.content,
-            date: postData.date
+            id: noteData._id,
+            title: noteData.title,
+            content: noteData.content,
+            date: noteData.date
           };
 
           this.form.setValue({ title: this.note.title, content: this.note.content });
@@ -51,7 +51,7 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
         this.mode = 'create';
         this.noteId = null;
       }
-    }); */
+    });
   }
 
   ngOnDestroy() {
@@ -67,7 +67,7 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
 
       this.labnotebookService.addNote(this.form.value.title, this.form.value.content);
     } else {
-      this.labnotebookService.updateNote();
+      this.labnotebookService.updateNote(this.noteId, this.form.value.title, this.form.value.content);
     }
     this.form.reset();
   }
