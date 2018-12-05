@@ -30,6 +30,8 @@ export class LabnotesComponent implements OnInit {
   constructor(private labNoteBookService: LabNoteBookService) { }
 
   ngOnInit() {
+    this.isLoading = true;
+    this.labNoteBookService.getNotes(this.NotesPerPage, this.currentPage);
   }
 
 }
