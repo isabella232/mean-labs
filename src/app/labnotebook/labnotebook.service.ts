@@ -15,6 +15,10 @@ export class LabNoteBookService {
   private notesUpdated = new Subject<{notes: Labnote [], noteCount: number}>();
 constructor (private http: HttpClient, private router: Router) {}
 
+getNotesUpdateListener() {
+  return this.notesUpdated.asObservable();
+}
+
 getNotes(notesPerPage: number, currentNotes: number) {
   const queryParams = `?pagesize=${notesPerPage}&page=${currentNotes}`;
   this.http.get<{message: string, notes: any, maxNotes: number}>(BACKENDURL + queryParams)

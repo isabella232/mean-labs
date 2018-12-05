@@ -11,14 +11,9 @@ import { LabNoteBookService } from '../labnotebook.service';
   styleUrls: ['./labnotes.component.scss']
 })
 export class LabnotesComponent implements OnInit {
-  labnotes: Labnote[] = [
-    {id: '1', title: 'Elastic Beanstalk', content: '', date: new Date()},
-    {id: '2', title: 'ACM', content: '', date: new Date(Date.UTC(2018, 11, 26, 3, 0, 0))},
-    {id: '3', title: 'S3 Buckets', content: '', date: new Date(Date.UTC(2018, 12, 11, 3, 0, 0))}
-  ];
+  labnotes: Labnote[] = [];
   isLoading = false;
-  private postsSub: Subscription;
-  private authStatusSub: Subscription;
+  private notesSub: Subscription;
   userId: string;
 
   totalNotes = 0;
@@ -32,6 +27,21 @@ export class LabnotesComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.labNoteBookService.getNotes(this.NotesPerPage, this.currentPage);
+    this.notesSub = this.labNoteBookService.getNotesUpdateListener()
+    .subscribe((notesData: {notes: Labnote[], noteCount: number}) => {
+      this.isLoading = false;
+      this.labnotes = notesData.notes;
+      this.totalNotes = notesData.noteCount;
+      console.log('count: ' + this.totalNotes);
+    });
   }
+
+  onChangedPage(pageData: PageEvent) {
+    this.isLoading = true;
+    this.currentPage = pageData.pageIndex + 1;
+    this.NotesPerPage = pageData.pageSize;
+    this.labNoteBookService.getNotes(this.NotesPerPage, this.currentPage);
+  }
+
 
 }
