@@ -33,8 +33,7 @@ exports.getNote = (req, res, next) => {
 
 exports.getNextNote = (req, res, next) => {
   LabNote.find({_id: {$gt: req.params.id}}).sort({_id: 1 }).limit(2).then(note => {
-    console.log("Got notes! ", note);
-    if(note) {
+    if(note.length > 0) {
       res.status(200).json(note);
     }else {
       res.status(404).json({message: 'Note not found!'});
@@ -44,8 +43,7 @@ exports.getNextNote = (req, res, next) => {
 
 exports.getPreviousNote = (req, res, next) => {
   LabNote.find({_id: {$lt: req.params.id}}).sort({_id: -1 }).limit(2).then(note => {
-    console.log("Got notes! ", note);
-    if(note) {
+    if(note.length > 0) {
       res.status(200).json(note);
     }else {
       res.status(404).json({message: 'Note not found!'});
