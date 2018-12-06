@@ -58,6 +58,24 @@ export class LabNoteBookService {
     }>(BACKENDURL + id);
   }
 
+  getNextNote(id: string) {
+    return this.http.get<{
+      _id: string;
+      title: string;
+      content: string;
+      date: Date;
+    }>(BACKENDURL + id + '/next');
+  }
+
+  getPreviousNote(id: string) {
+    return this.http.get<{
+      _id: string;
+      title: string;
+      content: string;
+      date: Date;
+    }>(BACKENDURL + id + '/previous');
+  }
+
   addNote(title: string, content: string) {
     const noteData = new FormData();
     noteData.append('title', title);

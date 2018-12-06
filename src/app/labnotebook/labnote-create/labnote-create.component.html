@@ -1,4 +1,11 @@
 <h2>Labnote</h2>
+<mat-toolbar-row>
+  <button mat-raised-button color="primary" (click)="onPrevious()" *ngIf="!isFirst"><mat-icon class="example-icon">navigate_before</mat-icon></button>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="primary" [routerLink]="['/labnotebook/labnotes']"  ><mat-icon class="example-icon">menu</mat-icon></button>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="primary" (click)="onNext()" *ngIf="!isLast"><mat-icon class="example-icon">navigate_next</mat-icon></button>
+</mat-toolbar-row>
 <mat-card>
     <mat-spinner *ngIf="isLoading"></mat-spinner>
   <form [formGroup]="form" (submit)="onSaveNote()" *ngIf="!isLoading">

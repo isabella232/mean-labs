@@ -26,7 +26,29 @@ exports.getNote = (req, res, next) => {
     if(note) {
       res.status(200).json(note);
     }else {
-      res.status(404).json({message: 'Post not found!'});
+      res.status(404).json({message: 'Note not found!'});
+    }
+  });
+};
+
+exports.getNextNote = (req, res, next) => {
+  LabNote.find({_id: {$gt: req.params.id}}).sort({_id: 1 }).limit(2).then(note => {
+    console.log("Got notes! ", note);
+    if(note) {
+      res.status(200).json(note);
+    }else {
+      res.status(404).json({message: 'Note not found!'});
+    }
+  });
+};
+
+exports.getPreviousNote = (req, res, next) => {
+  LabNote.find({_id: {$lt: req.params.id}}).sort({_id: -1 }).limit(2).then(note => {
+    console.log("Got notes! ", note);
+    if(note) {
+      res.status(200).json(note);
+    }else {
+      res.status(404).json({message: 'Note not found!'});
     }
   });
 };

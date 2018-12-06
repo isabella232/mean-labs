@@ -13,6 +13,8 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
   private mode = 'created'; // todo: created if nothing loaded at init
   private noteId: string;
   isLoading = false;
+  isFirst = false;
+  isLast = false;
   note: Labnote;
   form: FormGroup;
 
@@ -32,8 +34,6 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
     });
 
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      console.log(paramMap.get('mode'));
-
       const paramMode = paramMap.get('mode');
       if (paramMode === 'view' ) {
         this.mode = 'view';
@@ -99,5 +99,59 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
       );
     }
     this.form.reset();
+  }
+
+  onNext() {
+    this.isLoading = true;
+    this.isFirst = false;
+    this.isLast = false;
+    this.labnotebookService.getNextNote(this.noteId).subscribe( noteData => {
+      this.isLoading = false;
+      console.log('Note is: ', noteData);
+      this.note = {
+        id: noteData[0]._id,
+        title: noteData[0].title,
+        content: noteData[0].content,
+        date: noteData[0].date
+      };
+
+      this.form.setValue({
+        title: this.note.title,
+        content: this.note.content
+      });
+
+      this.noteId = this.note.id;
+
+      if (!noteData[1]) {
+        this.isLast = true;
+      }
+    });
+  }
+
+  onPrevious() {
+    this.isLoading = true;
+    this.isFirst = false;
+    this.isLast = false;
+    this.labnotebookService.getPreviousNote(this.noteId).subscribe( noteData => {
+      this.isLoading = false;
+      console.log('Note is: ', noteData);
+      this.note = {
+        id: noteData[0]._id,
+        title: noteData[0].title,
+        content: noteData[0].content,
+        date: noteData[0].date
+      };
+
+      this.form.setValue({
+        title: this.note.title,
+        content: this.note.content
+      });
+
+      this.noteId = this.note.id;
+
+      if (!noteData[1]) {
+        this.isFirst = true;
+      }
+    });
   }
 }
