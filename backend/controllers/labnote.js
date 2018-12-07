@@ -75,7 +75,6 @@ exports.getNotes = (req, res, next) => {
     fetchedNotes = documents;
     return LabNote.countDocuments()
   }).then(count => {
-    console.log('Check4 count: ' + count);
     res.status(200).json({
       message : 'Fetched notes sucess!',
       notes: fetchedNotes,
@@ -91,8 +90,6 @@ exports.getNotes = (req, res, next) => {
 };
 
 exports.updateNote = (req, res, next) => {
-  console.log('req body: ' + req.body.id);
-  console.log('req params: ' + req.params.id);
   const note = new LabNote({
   _id: req.body.id,
   title: req.body.title,
