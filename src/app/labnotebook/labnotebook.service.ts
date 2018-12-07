@@ -50,7 +50,7 @@ export class LabNoteBookService {
   }
 
   getNote(id: string) {
-    return this.http.get<{
+    return this.http.get<{ // just for demo, can also define objects here
       _id: string;
       title: string;
       content: string;
@@ -59,21 +59,11 @@ export class LabNoteBookService {
   }
 
   getNextNote(id: string) {
-    return this.http.get<{
-      _id: string;
-      title: string;
-      content: string;
-      date: Date;
-    }>(BACKENDURL + id + '/next');
+    return this.http.get<any>(BACKENDURL + id + '/next');
   }
 
   getPreviousNote(id: string) {
-    return this.http.get<{
-      _id: string;
-      title: string;
-      content: string;
-      date: Date;
-    }>(BACKENDURL + id + '/previous');
+    return this.http.get<any>(BACKENDURL + id + '/previous');
   }
 
   addNote(title: string, content: string) {

@@ -107,22 +107,25 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
     this.isLast = false;
     this.labnotebookService.getNextNote(this.noteId).subscribe( noteData => {
       this.isLoading = false;
-      console.log('Note is: ', noteData);
-      this.note = {
-        id: noteData[0]._id,
-        title: noteData[0].title,
-        content: noteData[0].content,
-        date: noteData[0].date
-      };
+      if (noteData.length > 0)  {
+        this.note = {
+          id: noteData[0]._id,
+          title: noteData[0].title,
+          content: noteData[0].content,
+          date: noteData[0].date
+        };
 
-      this.form.setValue({
-        title: this.note.title,
-        content: this.note.content
-      });
+        this.form.setValue({
+          title: this.note.title,
+          content: this.note.content
+        });
 
-      this.noteId = this.note.id;
+        this.noteId = this.note.id;
 
-      if (!noteData[1]) {
+        if (!noteData[1]) {
+          this.isLast = true;
+        }
+      } else if (noteData.message) {
         this.isLast = true;
       }
     });
@@ -134,22 +137,25 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
     this.isLast = false;
     this.labnotebookService.getPreviousNote(this.noteId).subscribe( noteData => {
       this.isLoading = false;
-      console.log('Note is: ', noteData);
-      this.note = {
-        id: noteData[0]._id,
-        title: noteData[0].title,
-        content: noteData[0].content,
-        date: noteData[0].date
-      };
+      if (noteData.length > 0)  {
+        this.note = {
+          id: noteData[0]._id,
+          title: noteData[0].title,
+          content: noteData[0].content,
+          date: noteData[0].date
+        };
 
-      this.form.setValue({
-        title: this.note.title,
-        content: this.note.content
-      });
+        this.form.setValue({
+          title: this.note.title,
+          content: this.note.content
+        });
 
-      this.noteId = this.note.id;
+        this.noteId = this.note.id;
 
-      if (!noteData[1]) {
+        if (!noteData[1]) {
+          this.isFirst = true;
+        }
+      } else if (noteData.message) {
         this.isFirst = true;
       }
     });

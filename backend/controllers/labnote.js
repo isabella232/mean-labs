@@ -25,7 +25,8 @@ exports.getNote = (req, res, next) => {
   LabNote.findById(req.params.id).then(note => {
     if(note) {
       res.status(200).json(note);
-    }else {
+    }
+    else {
       res.status(404).json({message: 'Note not found!'});
     }
   });
@@ -35,7 +36,11 @@ exports.getNextNote = (req, res, next) => {
   LabNote.find({_id: {$gt: req.params.id}}).sort({_id: 1 }).limit(2).then(note => {
     if(note.length > 0) {
       res.status(200).json(note);
-    }else {
+    }
+    else if(note.length === 0) {
+      res.status(200).json({message: 'No next note found, this is the last note!'});
+    }
+    else {
       res.status(404).json({message: 'Note not found!'});
     }
   });
@@ -45,7 +50,11 @@ exports.getPreviousNote = (req, res, next) => {
   LabNote.find({_id: {$lt: req.params.id}}).sort({_id: -1 }).limit(2).then(note => {
     if(note.length > 0) {
       res.status(200).json(note);
-    }else {
+    }
+    else if(note.length === 0) {
+      res.status(200).json({message: 'No previous note found, this is the first note!'});
+    }
+    else {
       res.status(404).json({message: 'Note not found!'});
     }
   });
