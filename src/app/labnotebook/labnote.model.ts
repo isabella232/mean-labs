@@ -3,4 +3,5 @@ export interface Labnote {
   title: string;
   content: string;
   date: Date;
+  stringDate: string;
 }

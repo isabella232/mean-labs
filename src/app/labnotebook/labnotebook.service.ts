@@ -55,6 +55,7 @@ export class LabNoteBookService {
       title: string;
       content: string;
       date: Date;
+      stringDate: string
     }>(BACKENDURL + id);
   }
 

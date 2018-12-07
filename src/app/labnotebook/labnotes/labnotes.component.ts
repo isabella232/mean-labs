@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PageEvent } from '@angular/material';
+import * as moment from 'moment';
 
 import { Labnote } from '../labnote.model';
 import { LabNoteBookService } from '../labnotebook.service';
@@ -30,6 +31,11 @@ export class LabnotesComponent implements OnInit {
     this.notesSub = this.labNoteBookService.getNotesUpdateListener()
     .subscribe((notesData: {notes: Labnote[], noteCount: number}) => {
       this.isLoading = false;
+
+      notesData.notes.forEach(note => {
+        note.stringDate = moment(note.date).format('dddd, MMMM Do YYYY, h:mm');
+      });
+
       this.labnotes = notesData.notes;
       this.totalNotes = notesData.noteCount;
     });

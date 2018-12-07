@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LabNoteBookService } from '../labnotebook.service';
 import { Labnote } from '../labnote.model';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-labnote-create',
@@ -45,7 +46,8 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
             id: noteData._id,
             title: noteData.title,
             content: noteData.content,
-            date: noteData.date
+            date: noteData.date,
+            stringDate: moment(noteData.date).format('dddd, MMMM Do YYYY, h:mm')
           };
 
           this.form.setValue({
@@ -64,7 +66,8 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
             id: noteData._id,
             title: noteData.title,
             content: noteData.content,
-            date: noteData.date
+            date: noteData.date,
+            stringDate: moment(noteData.date).format('dddd, MMMM Do YYYY, h:mm')
           };
 
           this.form.setValue({
@@ -112,7 +115,8 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
           id: noteData[0]._id,
           title: noteData[0].title,
           content: noteData[0].content,
-          date: noteData[0].date
+          date: noteData[0].date,
+          stringDate: moment(noteData[0].date).format('dddd, MMMM Do YYYY, h:mm')
         };
 
         this.form.setValue({
@@ -142,7 +146,8 @@ export class LabnoteCreateComponent implements OnInit, OnDestroy {
           id: noteData[0]._id,
           title: noteData[0].title,
           content: noteData[0].content,
-          date: noteData[0].date
+          date: noteData[0].date,
+          stringDate: moment(noteData[0].date).format('dddd, MMMM Do YYYY, h:mm')
         };
 
         this.form.setValue({
