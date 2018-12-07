@@ -32,7 +32,6 @@ export class LabnotesComponent implements OnInit {
       this.isLoading = false;
       this.labnotes = notesData.notes;
       this.totalNotes = notesData.noteCount;
-      console.log('count: ' + this.totalNotes);
     });
   }
 
