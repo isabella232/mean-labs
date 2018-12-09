@@ -1,0 +1,20 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-nav-list>
+  <mat-list-item *ngFor="let labnote of labnotes">
+      <a matLine [routerLink]="['/labnotebook/', 'view', labnote.id]">
+      <p matLine>
+          <span class="labnote-title"> {{labnote.title}} </span>
+          <span class="labnote-date"> {{labnote.date}} </span>
+        </p>
+      </a>
+     <a mat-button [routerLink]="['/labnotebook/', 'edit', labnote.id]">
+        <mat-icon>info</mat-icon>
+     </a>
+     <button mat-icon-button >
+        <mat-icon >warning</mat-icon>
+     </button>
+  </mat-list-item>
+</mat-nav-list>
+<mat-paginator [length]="totalNotes" [pageSize]="NotesPerPage" (page)="onChangedPage($event)" [pageSizeOptions]="pageSizeOptions" *ngIf="labnotes.length > 0" ></mat-paginator>
+<p *ngIf="labnotes.length < 1 && !isLoading">No posts added yet!</p>
+<a mat-raised-button color="primary" [routerLink]="['/labnotebook/create']" > New Post </a>

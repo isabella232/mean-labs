@@ -3,7 +3,7 @@
   <span class="spacer"></span>
   <ul>
     <li>
-      <a mat-stroked-button [routerLink]="['/labnotebook']" routerLinkActive="mat-accent" > Lab notebook </a>
+      <a mat-stroked-button [routerLink]="['/labnotebook/labnotes']" routerLinkActive="mat-accent" > Lab notebook </a>
     </li>
     <li *ngIf="!userIsAuthenticated">
       <a mat-stroked-button [routerLink]="['/posts/list']" routerLinkActive="mat-accent" disabled> Posts </a>

@@ -6,6 +6,7 @@ import { StartComponent } from './start/start.component';
 
 const routes: Routes = [
   { path: '', component: StartComponent },
+  { path: 'labnotebook', loadChildren: './labnotebook/labnotebook.module#LabnotebookModule'},
   { path: 'posts', loadChildren: './posts/posts.module#PostsModule' },
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' } // lazy loading modules
 ];

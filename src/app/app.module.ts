@@ -14,6 +14,7 @@ import { ErrorComponent } from './error/error.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { PostsModule } from './posts/posts.module';
 import { StartComponent } from './start/start.component';
+import { LabnotebookModule } from './labnotebook/labnotebook.module';
 // import { AuthModule } from './auth/auth.module'; lazy loaded
 
 @NgModule({
@@ -27,7 +28,8 @@ import { StartComponent } from './start/start.component';
     MatListModule,
     PostsModule,
     // AuthModule, this module uses lazy loading so should not be imported
-    AppRoutingModule
+    AppRoutingModule,
+    LabnotebookModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

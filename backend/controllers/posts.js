@@ -3,6 +3,7 @@ const Post = require('../models/post.js');
 const pathToImages = process.env.BACKEND_IMAGES_URL;
 
 exports.createPost = (req, res, next) => {
+
   const url = req.protocol + '://' + req.get('host');
 
   const post = new Post({
@@ -66,7 +67,6 @@ exports.getPosts = (req, res, next) => {
   const currentPage = +req.query.page;
   const postQuery = Post.find();
   let fetchedPosts;
-
   if(pageSize && currentPage) {
     postQuery
     .skip(pageSize * (currentPage - 1))
@@ -75,8 +75,9 @@ exports.getPosts = (req, res, next) => {
 
   postQuery.then(documents => {
     fetchedPosts = documents;
-    return Post.count()
+    return Post.countDocuments()
   }).then(count => {
+    console.log('Check posts: ' + count);
     res.status(200).json({
       message : 'Fetched posts sucess!',
       posts: fetchedPosts,
