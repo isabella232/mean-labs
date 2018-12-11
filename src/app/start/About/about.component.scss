@@ -1,0 +1,22 @@
+mat-card-content a, a:visited
+{
+  color: inherit;
+}
+mat-grid-tile {
+  background: inherit;
+}
+
+.biography-avatar {
+  background-image: url('../../../assets/avatar.jpg');
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  margin: 0 0 2rem 0;
+}
+/* iPhone X ----------- */
+@media only screen and (min-width: 375px) and (max-height: 812px){
+  .biography-avatar {
+    width: 100px;
+    height: 100px;
+  }
+}

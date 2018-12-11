@@ -15,10 +15,11 @@ import { AngularMaterialModule } from './angular-material.module';
 import { PostsModule } from './posts/posts.module';
 import { StartComponent } from './start/start.component';
 import { LabnotebookModule } from './labnotebook/labnotebook.module';
+import { AboutComponent } from './start/About/about.component';
 // import { AuthModule } from './auth/auth.module'; lazy loaded
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ErrorComponent, StartComponent],
+  declarations: [AppComponent, HeaderComponent, ErrorComponent, StartComponent, AboutComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
