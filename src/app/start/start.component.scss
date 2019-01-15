@@ -5,14 +5,6 @@ mat-card-content a, a:visited
 mat-grid-tile {
   background: inherit;
 }
-mat-card {
-  background-color: ivory;
-}
-
-.biography-card {
-  max-width: 400px;
-  float:left;
-}
 
 .biography-avatar {
   background-image: url('../../assets/avatar.jpg');
@@ -20,23 +12,26 @@ mat-card {
   width: 200px;
   height: 200px;
   margin: 0 0 2rem 0;
+
 }
 
-.under-construction {
-  width: 400px;
-  height: 582px;
-  background-image: url('../../assets/1376.jpg');
+.row {
+  display: flex;
+  justify-content: space-around;
 }
 
-.under-construction p {
-  margin-top: 50%;
-  text-align: center;
-  font-size: 22px;
-  font-weight: 800;
-  color: white;
+.left {
+  // width: 65%;
+  flex: 0 1 auto;
 }
 
-.backlogg {
-  width: 400px;
-  height: 582px;
+.right {
+  // width: 35%;
+  flex: 0 2 auto;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
 }
