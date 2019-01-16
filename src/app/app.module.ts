@@ -15,6 +15,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { PostsModule } from './posts/posts.module';
 import { StartComponent } from './start/start.component';
 import { LabnotebookModule } from './labnotebook/labnotebook.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 // import { AuthModule } from './auth/auth.module'; lazy loaded
 
 @NgModule({
@@ -23,6 +24,7 @@ import { LabnotebookModule } from './labnotebook/labnotebook.module';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FlexLayoutModule,
     AngularMaterialModule,
     MatGridListModule,
     MatListModule,
