@@ -3,12 +3,12 @@
 <p>
   This is a responsive gallery. Smaller screen will put each image into columns.
   <br>
-
+  TODO: - Lightbox gallery
 </p>
 </div>
 
 <div fxLayout="wrap row" fxLayoutGap="0.5%" fxLayoutAlign="center">
-  <mat-card class="card-picture" *ngFor="let picture of pictures">
+  <mat-card fxFlex="none" class="card-picture" *ngFor="let picture of pictures">
     <mat-card-title>
       <span >{{ picture.title }}</span>
     </mat-card-title>
