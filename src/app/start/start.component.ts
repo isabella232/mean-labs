@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-start',
@@ -7,22 +9,28 @@ import { Component } from '@angular/core';
 })
 export class StartComponent {
 
+  constructor(private router: Router) {}
+
   pictures = [
     {
-      id: 1,
+      id: 'recipebook',
       title: 'Recipe Book',
       img: 'https://gimpan.com/img/koreanburger.jpg'
     },
     {
-      id: 2,
+      id: 'roadmap',
       title: 'Roadmap',
       img: '../../assets/1.jpg'
     },
     {
-      id: 3,
+      id: 'gallery',
       title: 'Gallery',
       img: 'https://gimpan.com/img/dog.jpeg'
     }
   ];
+
+  onClick(id: string) {
+    this.router.navigate([id]);
+  }
 
 }

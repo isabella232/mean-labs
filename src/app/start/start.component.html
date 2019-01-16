@@ -40,7 +40,7 @@
     <div style="text-align:center"><h1>Showcase</h1></div>
 
     <div fxLayout="wrap row" fxLayoutGap="0.5%" fxLayoutAlign="center">
-      <mat-card class="card-picture" *ngFor="let picture of pictures">
+      <mat-card class="card-picture" (click)="onClick(picture.id)" *ngFor="let picture of pictures">
         <mat-card-title>
           <span >{{ picture.title }}</span>
         </mat-card-title>
