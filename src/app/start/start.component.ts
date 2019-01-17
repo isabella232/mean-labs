@@ -13,6 +13,16 @@ export class StartComponent {
 
   pictures = [
     {
+      id: 'sitegrids',
+      title: 'Grids',
+      img: 'https://gimpan.com/img/sitegrids.jpeg'
+    },
+    {
+      id: 'gallery',
+      title: 'Gallery',
+      img: 'https://gimpan.com/img/dog.jpeg'
+    },
+    {
       id: 'recipebook',
       title: 'Recipe Book',
       img: 'https://gimpan.com/img/koreanburger.jpg'
@@ -21,12 +31,8 @@ export class StartComponent {
       id: 'roadmap',
       title: 'Roadmap',
       img: '../../assets/1.jpg'
-    },
-    {
-      id: 'gallery',
-      title: 'Gallery',
-      img: 'https://gimpan.com/img/dog.jpeg'
     }
+
   ];
 
   onClick(id: string) {
