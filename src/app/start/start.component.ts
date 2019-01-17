@@ -30,7 +30,7 @@ export class StartComponent {
     {
       id: 'roadmap',
       title: 'Roadmap',
-      img: '../../assets/1.jpg'
+      img: 'https://gimpan.com/img/roadmap.jpg'
     }
 
   ];
