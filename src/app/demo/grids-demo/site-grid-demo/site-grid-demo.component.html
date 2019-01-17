@@ -1,3 +1,126 @@
+<h2>Grids</h2>
 <p>
-  site-grid-demo works!
+  Using
+  <a href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+    >CSS grids</a
+  >
+  to create a website is fairly simple and straightforward to. Easy way to
+  create a template and understand how to put things into place. Here is a few
+  examples I made following some guides.
 </p>
+<p>This is the HTML code I'll be using without styling or content:</p>
+
+<div class="template">
+  <div class="title-bgcolor">Title</div>
+  <div class="header-bgcolor">Header</div>
+  <div class="sidebar-bgcolor">Sidebar</div>
+  <div class="content-bgcolor">Content</div>
+  <div class="footer-bgcolor">Footer</div>
+</div>
+
+<mat-divider></mat-divider>
+
+<h3>Using areas</h3>
+
+<div class="typical-grid-areas">
+  <div class="title-bgcolor title-area">Title</div>
+  <div class="header-bgcolor header-area">Header</div>
+  <div class="sidebar-bgcolor sidebar-area">
+    Sidebar
+    <ul>
+      <li>Link 1</li>
+    </ul>
+  </div>
+  <div class="content-bgcolor content-area">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  </div>
+  <div class="footer-bgcolor footer-area">Footer</div>
+</div>
+
+<mat-divider></mat-divider>
+
+<h3>Wrapped grid</h3>
+
+<p>
+    This grid is surrounded by white space. The grid columns have fixed width.
+    Shrinking the webbrowser window horizontally should decrease white space and not the columns.
+    </p>
+
+<div class="typical-wrapped-grid-areas">
+  <div class="title-bgcolor title-area">Title</div>
+  <div class="header-bgcolor header-area">Header</div>
+  <div class="sidebar-bgcolor sidebar-area">
+    Sidebar
+    <ul>
+      <li>Link 1</li>
+      <li>Link 2</li>
+      <li>Link 3</li>
+    </ul>
+  </div>
+  <div class="content-bgcolor content-area">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et
+    elementum augue. Nulla finibus dui leo, vel euismod elit luctus sit amet.
+    Curabitur imperdiet lorem a risus efficitur venenatis. In hendrerit nisi
+    massa, sit amet eleifend dui luctus ac.
+  </div>
+  <div class="footer-bgcolor footer-area">Footer</div>
+</div>
+
+<mat-divider></mat-divider>
+
+<h3>Responsive</h3>
+<p>
+If on desktop, try minizing the browser window. It should stack the different
+sections on top of eachother and let them fill out the width.
+On desktop, the sidebar and content section share the same row.
+This is achieved using @media rule in CSS to swap out the grid rules.
+</p>
+
+<div class="typical-responsive-grid-areas">
+  <div class="title-bgcolor title-area">Title</div>
+  <div class="header-bgcolor header-area">Header</div>
+  <div class="sidebar-bgcolor sidebar-area">
+    Sidebar
+    <ul>
+      <li>Link 1</li>
+      <li>Link 2</li>
+      <li>Link 3</li>
+    </ul>
+  </div>
+  <div class="content-bgcolor content-area">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et
+    elementum augue. Nulla finibus dui leo, vel euismod elit luctus sit amet.
+    Curabitur imperdiet lorem a risus efficitur venenatis. In hendrerit nisi
+    massa, sit amet eleifend dui luctus ac.
+  </div>
+  <div class="footer-bgcolor footer-area">Footer</div>
+</div>
+
+<mat-divider></mat-divider>
+
+<h3>Using column spans</h3>
+
+<p>
+  This grid does not use areas. Instead it uses grid-column-start or -end.
+  There's a shorthand for it as well.
+</p>
+
+<div class="typical-grid">
+  <div class="title-bgcolor two-column-span">Title</div>
+  <div class="header-bgcolor two-column-span">Header</div>
+  <div class="sidebar-bgcolor one-column-span">
+    Sidebar
+    <ul>
+      <li>Link 1</li>
+      <li>Link 2</li>
+      <li>Link 3</li>
+    </ul>
+  </div>
+  <div class="content-bgcolor">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et
+    elementum augue. Nulla finibus dui leo, vel euismod elit luctus sit amet.
+    Curabitur imperdiet lorem a risus efficitur venenatis. In hendrerit nisi
+    massa, sit amet eleifend dui luctus ac.
+  </div>
+  <div class="footer-bgcolor two-column-span">Footer</div>
+</div>
