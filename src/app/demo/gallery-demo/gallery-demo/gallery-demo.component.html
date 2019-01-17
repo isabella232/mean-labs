@@ -1,16 +1,23 @@
-<div style="text-align:center">
+<div class="info">
   <h1>Gallery</h1>
-<p>
-  This is a responsive gallery. Smaller screen will put each image into columns.
-  <br>
-  TODO: - Lightbox gallery
-</p>
+  <p>
+    This is a responsive gallery. Smaller screen will put each image into
+    columns. This gallery is made with
+    <a href="https://www.npmjs.com/package/@angular/flex-layout"
+      >@angular/flex-layout</a
+    >
+    and
+    <a href="https://www.npmjs.com/package/@angular/material"
+      >@angular/material</a
+    >. <br />
+    All images are stored in AWS S3 buckets and simply linked to them.
+  </p>
 </div>
-
-<div fxLayout="wrap row" fxLayoutGap="0.5%" fxLayoutAlign="center">
+<mat-divider></mat-divider>
+<div  class="gallery" fxLayout="wrap row" fxLayoutGap="0.5%" fxLayoutAlign="center">
   <mat-card fxFlex="none" class="card-picture" *ngFor="let picture of pictures">
     <mat-card-title>
-      <span >{{ picture.title }}</span>
+      <span>{{ picture.title }}</span>
     </mat-card-title>
     <img mat-card-image [src]="picture.img" />
   </mat-card>

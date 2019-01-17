@@ -1,3 +1,11 @@
+.info {
+  text-align:center;
+}
+
+.gallery {
+  margin-top: 40px;
+}
+
 .card-picture {
   width: 250px;
   margin-bottom: 2%;
