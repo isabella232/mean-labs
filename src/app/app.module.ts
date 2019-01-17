@@ -18,10 +18,11 @@ import { StartComponent } from './start/start.component';
 import { LabnotebookModule } from './labnotebook/labnotebook.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GalleryDemoComponent } from './demo/gallery-demo/gallery-demo/gallery-demo.component';
+import { SiteGridDemoComponent } from './demo/grids-demo/site-grid-demo/site-grid-demo.component';
 // import { AuthModule } from './auth/auth.module'; lazy loaded
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ErrorComponent, StartComponent, GalleryDemoComponent],
+  declarations: [AppComponent, HeaderComponent, ErrorComponent, StartComponent, GalleryDemoComponent, SiteGridDemoComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
