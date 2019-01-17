@@ -15,7 +15,7 @@ export class StartComponent {
     {
       id: 'sitegrids',
       title: 'Grids',
-      img: 'https://gimpan.com/img/sitegrids.jpeg'
+      img: 'https://gimpan.com/img/gridlayout.png'
     },
     {
       id: 'gallery',
